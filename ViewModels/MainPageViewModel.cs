@@ -11,7 +11,6 @@ public partial class MainPageViewModel : BaseViewModel
     [ObservableProperty] private LocationModel _locationModel = new();
     [ObservableProperty] private Location _position = new Location();
     [ObservableProperty] private List<PinPropertyModel> _pins;
-    [ObservableProperty] private List<string> _pinsList = ["hello", "Good"];
 
     public MainPageViewModel()
     {

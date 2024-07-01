@@ -30,7 +30,7 @@
     <Grid Padding="20">
 
         <!--<mapComponent:MapComponent IsShowingUser="True" MapType="Street" AddPins="{Binding Pins}"/>-->
-        <mapComponent:MapComponent AddPins="{Binding PinsList}"/>
+        <mapComponent:MapComponent AddPins="{Binding Pins}"/>
 
 
     </Grid>
