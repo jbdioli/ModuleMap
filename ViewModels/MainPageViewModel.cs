@@ -1,21 +1,19 @@
-﻿
-using Microsoft.Maui.Controls.Maps;
+﻿using Microsoft.Maui.Controls.Maps;
 
 namespace ModuleMap.ViewModels;
 
 public partial class MainPageViewModel : BaseViewModel
 {
-    private readonly GeolocationHandler _geolocationHandler;
-    private readonly LocationDto _locationDto = new();
 
     [ObservableProperty] private LocationModel _locationModel = new();
     [ObservableProperty] private Location _position = new Location();
     [ObservableProperty] private List<PinPropertyModel> _pins;
+    [ObservableProperty] private PinPropertyModel _pin;
+    [ObservableProperty] private bool _isMoveToPosition = false;
+    [ObservableProperty] private bool _isMoveToPin = false;
 
     public MainPageViewModel()
     {
-        _geolocationHandler = new GeolocationHandler(_locationDto);
-
         _pins = new List<PinPropertyModel>()
         {
              new PinPropertyModel()
@@ -32,6 +30,15 @@ public partial class MainPageViewModel : BaseViewModel
                  Label = "Custom Pin 2",
                  Address = "Address 2"
              },
+
+        };
+
+        Pin = new PinPropertyModel()
+        {
+            Type = PinType.Place,
+            Location = new Location(37.79752, -122.40183),
+            Label = "Custom Pin 1",
+            Address = "Address 1"
         };
     }
 
@@ -40,8 +47,8 @@ public partial class MainPageViewModel : BaseViewModel
     {
         IsBusy = true;
 
-        _ = _geolocationHandler.DisplayAndGetLocationDetailsAsync();
-        Position = new Location(_locationDto.Lat, _locationDto.Lon);
+        IsMoveToPosition = true;
+        IsMoveToPin =! IsMoveToPosition;
 
         IsBusy = false;
         return Task.CompletedTask;
@@ -55,8 +62,14 @@ public partial class MainPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private Task MoveToRegion()
+    private Task MoveToPin()
     {
+        //IsMoveToPosition = false;
+        //IsMoveToPin = !IsMoveToPosition;
+
+        IsMoveToPin = true;
+        IsMoveToPosition = false;
+
         return Task.CompletedTask;
     }
 }

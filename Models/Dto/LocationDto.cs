@@ -1,4 +1,6 @@
-﻿namespace ModuleMap.Models.Dto;
+﻿using Map = Microsoft.Maui.Controls.Maps.Map;
+
+namespace ModuleMap.Models.Dto;
 
 public class LocationDto
 {
@@ -16,6 +18,6 @@ public class LocationDto
     public string County { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
     public string ZipCode { get; set; } = string.Empty;
-    //public Map XNameMap { get; set; }
+    
 }
 

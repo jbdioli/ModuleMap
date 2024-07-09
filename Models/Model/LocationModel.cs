@@ -1,4 +1,6 @@
-﻿namespace ModuleMap.Models.Model;
+﻿using Map = Microsoft.Maui.Controls.Maps.Map;
+
+namespace ModuleMap.Models.Model;
 
 public partial class LocationModel : BaseModel
 {
@@ -15,7 +17,12 @@ public partial class LocationModel : BaseModel
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(FullAddress))] private string _county = string.Empty;
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(FullAddress))] private string _city = string.Empty;
     [ObservableProperty] [NotifyPropertyChangedFor(nameof(FullAddress))] private string _zipCode = string.Empty;
+
+    [ObservableProperty] private PinPropertyModel _pinPropertyModel = new();
+
     public string FullAddress => $"{_address}, {_zipCode} {_city}, {_country}";
+
+    public Map map { get; set; }
 
 }
 
