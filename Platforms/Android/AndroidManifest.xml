@@ -2,11 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 	<application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true">
 	<!--Geolocation google key-->
-<<<<<<< HEAD
 	<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCMbRK8ZttYz_-equ2DpyRIgCCZJAU4syE"/>
-=======
-	<meta-data android:name="com.google.android.geo.API_KEY" android:value="gghgggggggggg"/>
->>>>>>> bb3e57301e1f7c215b109feca13bcfb776720678
 	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
